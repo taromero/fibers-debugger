@@ -18,7 +18,7 @@ function debug () {
           console.log(input, 'is not defined.')
         }
         rl.close()
-        _debug()
+        debug()
       }
       fut.return()
     }).future())
