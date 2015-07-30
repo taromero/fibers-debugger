@@ -1,27 +1,30 @@
 function debug () {
-  Future = Npm.require('fibers/future')
-  var fut = new Future()
   var _s = Error().stack
-  readline_prompt() // uncomment this to use Node's plain readline
-  fut.wait()
+  var _c = arguments.callee.caller.toString()
 
-  function readline_prompt () {
+  _debug()
+
+  function _debug() {
+    var Future = Npm.require('fibers/future')
     var readline = Npm.require('readline')
-    var rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 
-    rl.question('repl: ', (function (input) {
+    var flow = new Future()
+    var prompt = readline.createInterface({ input: process.stdin, output: process.stdout })
+
+    prompt.question('repl: ', (function (input) {
       if (input !== 'c') {
-        var _s = Error().stack
         try {
           console.log(eval(input))
         } catch (e) {
           console.log(input, 'is not defined.')
         }
-        rl.close()
-        debug()
+        prompt.close()
+        _debug()
       }
-      fut.return()
+      flow.return()
     }).future())
+
+    flow.wait()
   }
 }
 

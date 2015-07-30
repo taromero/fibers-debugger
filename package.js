@@ -1,6 +1,6 @@
 Package.describe({
   name: 'canotto90:fibers-debugger',
-  version: '0.0.6',
+  version: '0.0.7',
   summary: 'REPL with context on breakpoints, in the same terminal window where you run the fibers app.',
   git: 'https://github.com/taromero/fibers-debugger.git',
   documentation: 'README.md'

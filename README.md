@@ -17,8 +17,6 @@ It isn't very useful currently as it `can't be used on a plain Meteor app`. You 
 
 ### Limitations
 
-The main limitation is that this 
-
 - It isn't possible to navigate the code (step commands).
 - It isn't possible to see the code context (but you can see the stack trace).
 - No command history within the repl.
